@@ -4,40 +4,58 @@
 import { useState, useEffect } from 'react';
 import { Grid, Card, CardContent, Typography, Button, CardMedia } from '@mui/material';
 import { styled } from '@mui/material/styles'; // Importing styled from @mui/material/styles
-
+import { useRef } from 'react';
+import { CircularProgress } from '@mui/material';
 // Defining custom styles using styled function
 const StyledCard = styled(Card)({
   maxWidth: 400,
   margin: '20px',
 });
 
+
 const IndexPage = () => {
   const [jobs, setJobs] = useState([]);
   const [expandedJobId, setExpandedJobId] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const pageRef = useRef(null);
 
   useEffect(() => {
-    // Fetch job data from API
-    const fetchJobs = async () => {
-      try {
-        const response = await fetch("https://api.weekday.technology/adhoc/getSampleJdJSON", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            limit: 10,
-            offset: 0,
-          }),
-        });
-        const data = await response.json();
-        setJobs(data.jdList);
-      } catch (error) {
-        console.error('Error fetching jobs:', error);
-      }
-    };
-
     fetchJobs();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const fetchJobs = async () => {
+    if (loading) return;
+
+    setLoading(true);
+
+    try {
+      const response = await fetch("https://api.weekday.technology/adhoc/getSampleJdJSON", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          limit: 10,
+          offset: jobs.length, // Offset by the current number of jobs
+        }),
+      });
+      const data = await response.json();
+      setJobs(prevJobs => [...prevJobs, ...data.jdList]);
+    } catch (error) {
+      console.error('Error fetching jobs:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleScroll = () => {
+    const { scrollTop, clientHeight, scrollHeight } = pageRef.current;
+
+    if (scrollHeight - scrollTop === clientHeight) {
+      fetchJobs();
+    }
+  };
 
   const toggleExpand = (jobId) => {
     if (expandedJobId === jobId) {
@@ -46,8 +64,10 @@ const IndexPage = () => {
       setExpandedJobId(jobId);
     }
   };
+  
 
   return (
+    <div ref={pageRef} onScroll={handleScroll} style={{ overflowY: 'scroll', height: '100vh' }}>
     <Grid container spacing={3} justifyContent="center">
       {jobs.map(job => (
         <Grid item key={job.jdUid} xs={12}>
@@ -113,7 +133,13 @@ const IndexPage = () => {
           </StyledCard>
         </Grid>
       ))}
+      {loading && (
+          <Grid item xs={12} style={{ textAlign: 'center' }}>
+            <CircularProgress />
+          </Grid>
+          )}
     </Grid>
+    </div>
   );
 };
 
