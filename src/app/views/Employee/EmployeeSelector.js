@@ -79,6 +79,11 @@ const EmployeeSelector = ({
       >
         <MenuItem onClick={() => handleEmployeeSelect("1-10")}>1-10</MenuItem>
         <MenuItem onClick={() => handleEmployeeSelect("11-20")}>11-20</MenuItem>
+        <MenuItem onClick={() => handleEmployeeSelect("21-50")}>21-50</MenuItem>
+        <MenuItem onClick={() => handleEmployeeSelect("51-100")}>51-100</MenuItem>
+        <MenuItem onClick={() => handleEmployeeSelect("101-200")}>101-200</MenuItem>
+        <MenuItem onClick={() => handleEmployeeSelect("201-500")}>201-500</MenuItem>
+        <MenuItem onClick={() => handleEmployeeSelect("501-1000")}>500+</MenuItem>
         {/* Add more menu items as needed */}
       </Menu>
     </>

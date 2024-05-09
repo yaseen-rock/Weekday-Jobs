@@ -78,7 +78,14 @@ const SalarySelector = ({
       >
         <MenuItem onClick={() => handleSalarySelect("0")}>0L</MenuItem>
         <MenuItem onClick={() => handleSalarySelect("10")}>10L</MenuItem>
-        <MenuItem onClick={() => handleSalarySelect("26")}>20L</MenuItem>
+        <MenuItem onClick={() => handleSalarySelect("20")}>20L</MenuItem>
+        <MenuItem onClick={() => handleMenuItemClick("30")}>30L</MenuItem>
+        <MenuItem onClick={() => handleMenuItemClick("40")}>40L</MenuItem>
+        <MenuItem onClick={() => handleMenuItemClick("50")}>50L</MenuItem>
+        <MenuItem onClick={() => handleMenuItemClick("60")}>60L</MenuItem>
+        <MenuItem onClick={() => handleMenuItemClick("70")}>70L</MenuItem>
+        <MenuItem onClick={() => handleMenuItemClick("80")}>80L</MenuItem>
+        <MenuItem onClick={() => handleMenuItemClick("90")}>90L</MenuItem>
       </Menu>
     </>
   );

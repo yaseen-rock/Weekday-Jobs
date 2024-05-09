@@ -76,6 +76,12 @@ const ExperienceSelector = ({
         <MenuItem onClick={() => handleExperienceSelect("1")}>1</MenuItem>
         <MenuItem onClick={() => handleExperienceSelect("2")}>2</MenuItem>
         <MenuItem onClick={() => handleExperienceSelect("3")}>3</MenuItem>
+        <MenuItem onClick={() => handleExperienceSelect("4")}>4</MenuItem>
+        <MenuItem onClick={() => handleExperienceSelect("5")}>5</MenuItem>
+        <MenuItem onClick={() => handleExperienceSelect("6")}>6</MenuItem>
+        <MenuItem onClick={() => handleExperienceSelect("7")}>7</MenuItem>
+        <MenuItem onClick={() => handleExperienceSelect("8")}>8</MenuItem>
+        <MenuItem onClick={() => handleExperienceSelect("9")}>9</MenuItem>
         {/* Add more menu items as needed */}
       </Menu>
     </>

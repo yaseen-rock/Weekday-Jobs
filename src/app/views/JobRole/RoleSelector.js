@@ -107,11 +107,144 @@ const RoleSelector = ({
           },
         }}
       >
-        <Typography>Experience</Typography>
-        <MenuItem onClick={() => handleRoleSelect("ios")}>ios</MenuItem>
-        <MenuItem onClick={() => handleRoleSelect("Data Analyst")}>
-          Data Analyst
+        <Typography
+          variant="body2"
+          color="textSecondary"
+          marginLeft={2}
+          marginTop={1}
+        >
+          ENGENEERING
+        </Typography>
+
+        <MenuItem onClick={() => handleRoleSelect("ios")}>
+          {" "}
+          iOS Developer
         </MenuItem>
+        <MenuItem onClick={() => handleRoleSelect("Android")}>
+          Android Developer
+        </MenuItem>
+        <MenuItem onClick={() => handleRoleSelect("Frontend")}>
+          Frontend Developer
+        </MenuItem>
+        <MenuItem onClick={() => handleRoleSelect("Backend")}>
+          Backend Developer
+        </MenuItem>
+        <MenuItem onClick={() => handleRoleSelect("Full Stack")}>
+          Full Stack Developer
+        </MenuItem>
+        <MenuItem onClick={() => handleRoleSelect("DevOps")}>
+          DevOps Engineer
+        </MenuItem>
+        <MenuItem onClick={() => handleRoleSelect("Data Engineer")}>
+          Data Engineer
+        </MenuItem>
+        <MenuItem onClick={() => handleRoleSelect("Machine Learning")}>
+          Machine Learning
+        </MenuItem>
+        <MenuItem onClick={() => handleRoleSelect("Software Engineer")}>
+          Software Engineer
+        </MenuItem>
+
+        {/* Design Roles */}
+        <Typography
+          variant="body2"
+          color="textSecondary"
+          marginLeft={2}
+          marginTop={2}
+        >
+          DESIGN
+        </Typography>
+        <MenuItem onClick={() => handleRoleSelect("UI/UX")}>
+          UI/UX Designer
+        </MenuItem>
+        <MenuItem onClick={() => handleRoleSelect("Graphic")}>
+          Graphic Designer
+        </MenuItem>
+        <MenuItem onClick={() => handleRoleSelect("Product")}>
+          Product Designer
+        </MenuItem>
+        <MenuItem onClick={() => handleRoleSelect("Web")}>
+          Web Designer
+        </MenuItem>
+
+        {/* Operations Roles */}
+        <Typography
+          variant="body2"
+          color="textSecondary"
+          marginLeft={2}
+          marginTop={2}
+        >
+          OPERATIONS
+        </Typography>
+        <MenuItem onClick={() => handleRoleSelect("Operations Coordinator")}>
+          Operations Coordinator
+        </MenuItem>
+        <MenuItem onClick={() => handleRoleSelect("Operations Manager")}>
+          Operations Manager
+        </MenuItem>
+        <MenuItem onClick={() => handleRoleSelect("Operations Analyst")}>
+          Operations Analyst
+        </MenuItem>
+
+        {/* Product Roles */}
+        <Typography
+          variant="body2"
+          color="textSecondary"
+          marginLeft={2}
+          marginTop={2}
+        >
+          PRODUCT
+        </Typography>
+        <MenuItem onClick={() => handleRoleSelect("Product Manager")}>
+          Product Manager
+        </MenuItem>
+        <MenuItem onClick={() => handleRoleSelect("Product Owner")}>
+          Product Owner
+        </MenuItem>
+        <MenuItem onClick={() => handleRoleSelect("Product Analyst")}>
+          Product Analyst
+        </MenuItem>
+
+        {/* Sales Roles */}
+        <Typography
+          variant="body2"
+          color="textSecondary"
+          marginLeft={2}
+          marginTop={2}
+        >
+          SALES
+        </Typography>
+        <MenuItem onClick={() => handleRoleSelect("Sales Associate")}>
+          Sales Associate
+        </MenuItem>
+        <MenuItem onClick={() => handleRoleSelect("Sales Representative")}>
+          Sales Representative
+        </MenuItem>
+        <MenuItem onClick={() => handleRoleSelect("Sales Manager")}>
+          Sales Manager
+        </MenuItem>
+        <MenuItem onClick={() => handleRoleSelect("Account Executive")}>
+          Account Executive
+        </MenuItem>
+
+        <Typography
+          variant="body2"
+          color="textSecondary"
+          marginLeft={2}
+          marginTop={2}
+        >
+          HR
+        </Typography>
+        <MenuItem onClick={() => handleRoleSelect("Hr")}>Hr</MenuItem>
+        <Typography
+          variant="body2"
+          color="textSecondary"
+          marginLeft={2}
+          marginTop={2}
+        >
+          LEGAL
+        </Typography>
+        <MenuItem onClick={() => handleRoleSelect("Legal")}>Legal</MenuItem>
         {/* Add more menu items as needed */}
       </Menu>
     </>
