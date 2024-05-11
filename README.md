@@ -9,6 +9,9 @@ Weekday Jobs is a React application that fetches job listings from the Weekday J
 - Allows users to expand/collapse job details.
 - Provides an "Easy Apply" button for quick job application.
 
+## Screenshot
+![Image Description]([https://link.to.your/image.jpg](https://i.ibb.co/qMCd1Km/Screenshot-187.png))
+
 ## Deployment
 This application is deployed and can be accessed [here](https://weekday-jobs-eight.vercel.app/).
 
