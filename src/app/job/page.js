@@ -194,34 +194,63 @@ const IndexPage = () => {
     setFilteredJobs(filtered);
   }, [jobs, selectedRoles, selectedExperience, selectedSalary]);
 
+const fakeJobs = [
+  {
+    id: 1,
+    companyName: "TechNova",
+    jobRole: "Frontend Developer",
+    location: "Bangalore",
+    minExp: 1,
+    maxExp: 3,
+    minJdSalary: 8,
+    maxJdSalary: 12,
+    jobDetailsFromCompany: "We are looking for a React developer with strong UI skills.",
+  },
+  {
+    id: 2,
+    companyName: "CodeWave",
+    jobRole: "Backend Developer",
+    location: "Remote",
+    minExp: 2,
+    maxExp: 5,
+    minJdSalary: 10,
+    maxJdSalary: 15,
+    jobDetailsFromCompany: "Seeking a Node.js expert familiar with microservices architecture.",
+  },
+  {
+    id: 3,
+    companyName: "DataGrove",
+    jobRole: "Data Analyst",
+    location: "Hyderabad",
+    minExp: 0,
+    maxExp: 2,
+    minJdSalary: 6,
+    maxJdSalary: 9,
+    jobDetailsFromCompany: "Entry-level role for a data enthusiast with Python skills.",
+  },
+  // Add more if needed
+];
+
+
   const fetchJobs = async () => {
-    if (loading) return;
+  if (loading) return;
 
-    setLoading(true);
+  setLoading(true);
 
-    try {
-      const response = await fetch(
-        "https://api.weekday.technology/adhoc/getSampleJdJSON",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            limit: 10,
-            offset: jobs.length, // Offset by the current number of jobs
-          }),
-        }
-      );
-      const data = await response.json();
-      setJobs((prevJobs) => [...prevJobs, ...data.jdList]);
-      setTotalCount(data.totalCount);
-    } catch (error) {
-      console.error("Error fetching jobs:", error);
-    } finally {
-      setLoading(false);
-    }
-  };
+  try {
+    // Simulate delay
+    await new Promise((res) => setTimeout(res, 1000));
+    
+    const newJobs = fakeJobs.slice(jobs.length, jobs.length + 3); // Fake pagination
+    setJobs((prevJobs) => [...prevJobs, ...newJobs]);
+    setTotalCount(fakeJobs.length);
+  } catch (error) {
+    console.error("Error fetching jobs:", error);
+  } finally {
+    setLoading(false);
+  }
+};
+
 
   const handleRoleSelect = (role) => {
     setSelectedRoles([""]); // Pass a blank value first
